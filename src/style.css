@@ -12,7 +12,7 @@ h1 {
 
 ul li ul li {
   display: inline;
-  margin: 0 15px;
+  margin: 0 9px;
 }
 
 ul,
@@ -32,6 +32,9 @@ ul li ul {
 ul {
   margin-bottom: 10px;
 }
+.city-sentence {
+  font-size: 20px;
+}
 
 .weather-app-wrapper {
   max-width: 400px;
@@ -46,6 +49,13 @@ ul {
 
 .col-6 {
   text-align: center;
+}
+
+.col-9 {
+  padding: 0 0 0 15px;
+}
+.col-3 {
+  padding: 0 15px 0 0;
 }
 
 .weather-display img {
