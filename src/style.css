@@ -1,3 +1,23 @@
-h1 {
-  color: blue;
+ul,
+ul li ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+ul li ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.weather-app {
+  max-width: 455px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+
+.col-6 {
+  text-align: center;
 }
