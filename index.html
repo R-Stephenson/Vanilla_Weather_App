@@ -3,37 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <ul>
-          <li>Last Updated</li>
-          <li><h1>Now in Cardiff, UK</h1></li>
-          <li>
-            <ul>
-              <li>Precipitation: 3%</li>
-              <li>Humidity: 79%</li>
-              <li>Wind: 3 mph</li>
-            </ul>
-          </li>
-        </ul>
-        <div class="row">
-          <div class="col-6">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt="Mostly cloudy"
-            />
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <ul>
+            <li>Last Updated</li>
+            <li><h1>Now in Cardiff, UK</h1></li>
+            <li>
+              <ul>
+                <li>Precipitation: 3%</li>
+                <li>Humidity: 79%</li>
+                <li>Wind: 3 mph</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="row weather-temperature">
+            <div class="col-6">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                alt="Mostly cloudy"
+              />
+            </div>
+            <div class="col-6">
+              <strong>15</strong
+              ><span class="units">°C | <a href="#">°F</a></span>
+            </div>
           </div>
-          <div class="col-6">15°C | °F</div>
         </div>
         <small
           ><a
