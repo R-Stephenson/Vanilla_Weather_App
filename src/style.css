@@ -32,6 +32,18 @@ ul li ul {
 ul {
   margin-bottom: 10px;
 }
+
+a:hover,
+.active:hover {
+  text-decoration: none;
+}
+
+.active {
+  color: #5e5e5e;
+  font-weight: bold;
+  cursor: default;
+}
+
 .city-sentence {
   font-size: 20px;
 }
