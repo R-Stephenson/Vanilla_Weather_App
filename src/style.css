@@ -54,7 +54,7 @@ a:hover,
 }
 
 .weather-app {
-  padding: 10px;
+  padding: 8px;
   border: 1px solid #dadde1;
   border-radius: 5px;
 }
@@ -97,4 +97,14 @@ a:hover,
 .temperature-display .units {
   position: relative;
   top: -46px;
+}
+
+.weather-forecast .col-3 {
+  color: #5e5e5e;
+  text-align: center;
+}
+
+h3,
+.weather-forecast-temperature {
+  font-size: 14px;
 }
