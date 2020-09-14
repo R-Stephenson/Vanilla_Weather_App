@@ -46,6 +46,7 @@ function formatHours(timestamp) {
 }
 
 function displayTemperature(response) {
+  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -54,6 +55,8 @@ function displayTemperature(response) {
   let feelsLikeElement = document.querySelector("#feels-like");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  let sunriseElement = document.querySelector("#sunrise");
+  let sunsetElement = document.querySelector("#sunset");
 
   celciusTemperature = response.data.main.temp;
 
@@ -69,6 +72,8 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  sunriseElement.innerHTML = formatHours(response.data.sys.sunrise * 1000);
+  sunsetElement.innerHTML = formatHours(response.data.sys.sunset * 1000);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);

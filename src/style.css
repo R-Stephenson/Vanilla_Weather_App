@@ -10,7 +10,8 @@ h1 {
   margin: 10px 0;
 }
 
-ul li ul li {
+ul li ul li,
+.sun-times li {
   display: inline;
   margin: 0 4px;
 }
@@ -69,6 +70,10 @@ a:hover,
 
 .col-9 {
   padding: 0 0 0 18px;
+}
+.sun-times {
+  display: block;
+  margin: 0 auto;
 }
 .col-3 {
   padding: 0 0 0 10px;
