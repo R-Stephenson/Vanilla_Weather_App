@@ -10,6 +10,10 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/156045c83d.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
@@ -20,28 +24,43 @@
         <div class="weather-app">
           <form id="search-form" class="mb-3">
             <div class="row">
-              <div class="col-9">
+              <div class="col-8">
                 <input
                   type="search"
                   placeholder="Enter city..."
                   class="form-control"
                   id="city-input"
-                  autocomplete="off"
+                  autocomplete="on"
                 />
               </div>
-              <div class="col-3">
-                <input
-                  type="submit"
-                  value="search"
-                  class="btn btn-secondary w-100"
-                />
+              <div class="col-4">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button
+                    type="submit"
+                    value="search"
+                    class="btn btn-secondary"
+                    id="search"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <button
+                    type="submit"
+                    value="search"
+                    class="btn btn-secondary"
+                    id="current-location"
+                  >
+                    <i class="fas fa-map-marker-alt"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </form>
 
           <ul>
             <li>
-              <small>Last updated: <span id="date"></span></small>
+              <small
+                >Last updated: <strong><span id="date"></span></strong
+              ></small>
             </li>
             <li>
               <h1>

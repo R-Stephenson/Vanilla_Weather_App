@@ -4,22 +4,22 @@ body {
 }
 
 h1 {
-  font-size: 29px;
+  font-size: 3.52vw;
   font-weight: 100;
-  line-height: 28px;
-  margin: 10px 0;
+  line-height: 3.34vw;
+  margin: 1.21vw 0;
 }
 
 ul li ul li {
   display: inline;
-  margin: 0 9px;
+  margin: 0 1.09vw;
 }
 
 ul,
 ul li ul,
 ul li ul li {
   padding: 0;
-  font-size: 14px;
+  font-size: 1.7vw;
 }
 
 ul,
@@ -30,7 +30,7 @@ ul li ul {
 }
 
 ul {
-  margin-bottom: 10px;
+  margin-bottom: 1.21vw;
 }
 
 a:hover,
@@ -45,34 +45,34 @@ a:hover,
 }
 
 .city-sentence {
-  font-size: 20px;
+  font-size: 2.42vw;
 }
 
 .weather-app-wrapper {
-  max-width: 400px;
-  margin: 30px auto;
+  max-width: 55vw;
+  margin: 3.64vw auto;
 }
 
 .weather-app {
-  padding: 8px;
-  border: 1px solid #dadde1;
-  border-radius: 5px;
+  padding: 0.97vw;
+  border: 0.12vw solid #dadde1;
+  border-radius: 0.61vw;
 }
 
 .col-6 {
   text-align: center;
 }
 
-.col-9 {
-  padding: 0 0 0 15px;
+.col-8 {
+  padding: 0 0 0 3vw;
 }
-.col-3 {
-  padding: 0 15px 0 0;
+.col-4 {
+  padding: 0 0 0 2vw;
 }
 
 .weather-display img {
-  width: 100px;
-  height: 100px;
+  width: 12.12vw;
+  height: 12.12vw;
   margin-top: 0;
 }
 
@@ -85,18 +85,18 @@ a:hover,
 }
 
 .temperature-display {
-  margin-top: 10px;
+  margin-top: 1.21vw;
 }
 
 .temperature-display strong {
-  font-size: 80px;
+  font-size: 9.69vw;
   font-weight: 400;
   color: #000;
 }
 
 .temperature-display .units {
   position: relative;
-  top: -46px;
+  top: -5.58vw;
 }
 
 .weather-forecast .col-3 {
@@ -106,5 +106,31 @@ a:hover,
 
 h3,
 .weather-forecast-temperature {
-  font-size: 14px;
+  font-size: 1.69vw;
+  text-align: center;
+}
+
+.btn-group #search {
+  background-color: #737d85;
+}
+
+.btn-group #search,
+.btn-group #current-location {
+  width: 6.97vw;
+}
+
+.btn-group #current-location {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.btn-group #search:hover,
+.btn-group #current-location:hover,
+.btn-group #search:focus,
+.btn-group #current-location:focus,
+#city-input:focus {
+  box-shadow: none;
+  background-color: #ececec;
+  color: #727b83;
+  border: none;
 }

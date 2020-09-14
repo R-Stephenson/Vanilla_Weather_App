@@ -1,6 +1,5 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
-
   let days = [
     "Sunday",
     "Monday",
@@ -11,8 +10,25 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
+  let dayNumber = date.getDate();
+  let months = [
+    "February",
+    "March",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+    "January",
+  ];
+  let month = months[date.getMonth()];
   let year = date.getFullYear();
-  return `${day} | ${formatHours(timestamp)} | ${year}`;
+  return `${day} ${dayNumber} | ${month} | ${formatHours(timestamp)} | ${year}`;
 }
 
 function formatHours(timestamp) {
@@ -53,6 +69,9 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayForecast(response) {
@@ -77,12 +96,20 @@ function displayForecast(response) {
 }
 
 function search(city) {
-  let apiKey = "3e1b3b8411774a6a5d3ce0ee0f1a08dc";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
-
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
+}
+
+function searchLocation(position) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
 function handleSubmit(event) {
@@ -108,10 +135,15 @@ function displayCelciusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
 
+let apiKey = "3e1b3b8411774a6a5d3ce0ee0f1a08dc";
+
 let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let currentLocation = document.querySelector("#current-location");
+currentLocation.addEventListener("click", getCurrentLocation);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
