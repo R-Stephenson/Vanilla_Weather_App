@@ -4,22 +4,22 @@ body {
 }
 
 h1 {
-  font-size: 3.52vw;
+  font-size: 29px;
   font-weight: 100;
-  line-height: 3.34vw;
-  margin: 1.21vw 0;
+  line-height: 27.5px;
+  margin: 10px 0;
 }
 
 ul li ul li {
   display: inline;
-  margin: 0 1.09vw;
+  margin: 0 9px;
 }
 
 ul,
 ul li ul,
 ul li ul li {
   padding: 0;
-  font-size: 1.7vw;
+  font-size: 14px;
 }
 
 ul,
@@ -30,7 +30,7 @@ ul li ul {
 }
 
 ul {
-  margin-bottom: 1.21vw;
+  margin-bottom: 10px;
 }
 
 a:hover,
@@ -45,18 +45,18 @@ a:hover,
 }
 
 .city-sentence {
-  font-size: 2.42vw;
+  font-size: 20px;
 }
 
 .weather-app-wrapper {
-  max-width: 55vw;
-  margin: 3.64vw auto;
+  max-width: 453.75px;
+  margin: 30px auto;
 }
 
 .weather-app {
-  padding: 0.97vw;
-  border: 0.12vw solid #dadde1;
-  border-radius: 0.61vw;
+  padding: 8px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
 }
 
 .col-6 {
@@ -64,15 +64,15 @@ a:hover,
 }
 
 .col-8 {
-  padding: 0 0 0 3vw;
+  padding: 0 0 0 24.75px;
 }
 .col-4 {
-  padding: 0 0 0 2vw;
+  padding: 0 0 0 16.5px;
 }
 
 .weather-display img {
-  width: 12.12vw;
-  height: 12.12vw;
+  width: 100px;
+  height: 100px;
   margin-top: 0;
 }
 
@@ -85,18 +85,18 @@ a:hover,
 }
 
 .temperature-display {
-  margin-top: 1.21vw;
+  margin-top: 10px;
 }
 
 .temperature-display strong {
-  font-size: 9.69vw;
+  font-size: 80px;
   font-weight: 400;
   color: #000;
 }
 
 .temperature-display .units {
   position: relative;
-  top: -5.58vw;
+  top: -46px;
 }
 
 .weather-forecast .col-3 {
@@ -106,7 +106,7 @@ a:hover,
 
 h3,
 .weather-forecast-temperature {
-  font-size: 1.69vw;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -116,7 +116,7 @@ h3,
 
 .btn-group #search,
 .btn-group #current-location {
-  width: 6.97vw;
+  width: 57.5px;
 }
 
 .btn-group #current-location {
