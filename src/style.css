@@ -33,6 +33,10 @@ ul {
   margin-bottom: 10px;
 }
 
+h3 {
+  margin-bottom: 0;
+}
+
 a:hover,
 .active:hover {
   text-decoration: none;
@@ -49,7 +53,7 @@ a:hover,
 }
 
 .weather-app-wrapper {
-  max-width: 453.75px;
+  max-width: 400px;
   margin: 30px auto;
 }
 
@@ -63,11 +67,15 @@ a:hover,
   text-align: center;
 }
 
-.col-8 {
-  padding: 0 0 0 24.75px;
+.col-9 {
+  padding: 0 0 0 15px;
 }
-.col-4 {
-  padding: 0 0 0 16.5px;
+.col-3 {
+  padding: 0 0 0 7.5px;
+}
+
+.col-3 img {
+  width: 80px;
 }
 
 .weather-display img {
@@ -116,7 +124,7 @@ h3,
 
 .btn-group #search,
 .btn-group #current-location {
-  width: 57.5px;
+  width: 40px;
 }
 
 .btn-group #current-location {
