@@ -24,7 +24,7 @@
         <div class="weather-app">
           <form id="search-form" class="mb-3">
             <div class="row">
-              <div class="col-9">
+              <div class="col-8">
                 <input
                   type="search"
                   placeholder="Enter city..."
@@ -33,7 +33,7 @@
                   autocomplete="on"
                 />
               </div>
-              <div class="col-3">
+              <div class="col-4">
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <button
                     type="submit"
@@ -50,6 +50,13 @@
                     id="current-location"
                   >
                     <i class="fas fa-map-marker-alt"></i>
+                  </button>
+                  <button
+                    class="btn btn-secondary"
+                    id="refresh"
+                    onclick="window.location.reload()"
+                  >
+                    <i class="fas fa-redo"></i>
                   </button>
                 </div>
               </div>
@@ -70,17 +77,31 @@
             </li>
             <li>
               <ul>
-                <li><strong>Humidity:</strong> <span id="humidity"></span>%</li>
-                <li><strong>speed:</strong> <span id="wind"></span> km/h</li>
                 <li>
-                  <strong>Feels like:</strong> <span id="feels-like"></span>°C
+                  <strong><i class="fas fa-tint"></i></strong>
+                  <span id="humidity"></span>%
+                </li>
+                <li>
+                  <strong><i class="fas fa-wind"></i></strong>
+                  <span id="wind"></span> km/h
+                </li>
+                <li>
+                  <strong><i class="fas fa-temperature-high"></i></strong>
+                  <span id="feels-like"></span>°C
                 </li>
               </ul>
             </li>
+            <li></li>
           </ul>
           <ul class="sun-times">
-            <li><strong>Sunrise | </strong> <span id="sunrise"></span></li>
-            <li><strong>Sunset | </strong> <span id="sunset"></span></li>
+            <li>
+              <strong><i class="fas fa-sun"></i></strong>
+              <span id="sunrise"></span>
+            </li>
+            <li>
+              <strong><i class="fas fa-moon"></i></strong>
+              <span id="sunset"></span>
+            </li>
           </ul>
           <div class="row">
             <div class="col-6 weather-display">
@@ -97,7 +118,10 @@
           </div>
           <br />
           <div class="row weather-forecast" id="forecast"></div>
+          <hr />
+          <div class="row weather-forecast" id="daily-forecast"></div>
         </div>
+
         <small
           ><a
             href="https://github.com/R-Stephenson/Vanilla_Weather_App"

@@ -1,4 +1,4 @@
-function formatDate(timestamp) {
+function formatDay(timestamp) {
   let date = new Date(timestamp);
   let days = [
     "Sunday",
@@ -10,6 +10,26 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
+
+  return `${day}`;
+}
+
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let dayNumber = date.getDate();
   let months = [
     "February",
@@ -28,25 +48,13 @@ function formatDate(timestamp) {
   ];
   let month = months[date.getMonth()];
   let year = date.getFullYear();
-  return `${day} ${dayNumber} | ${month} | ${formatHours(timestamp)} | ${year}`;
-}
-
-function formatHours(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  return `${hours}:${minutes}`;
+  return `${formatDay(timestamp)} ${dayNumber} | ${month} | ${formatHours(
+    timestamp
+  )} | ${year}`;
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
+  // console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -77,6 +85,10 @@ function displayTemperature(response) {
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&
+exclude=hourly&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayDailyForecast);
 }
 
 function displayForecast(response) {
@@ -97,6 +109,30 @@ function displayForecast(response) {
     <div class="weather-forecast-temperature"><strong>${Math.round(
       forecast.main.temp_max
     )}</strong> | ${Math.round(forecast.main.temp_min)}°</div></div>`;
+  }
+}
+
+function displayDailyForecast(response) {
+  console.log(response.data);
+  let forecastElement = document.querySelector("#daily-forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 1; index < 4; index++) {
+    forecast = response.data.daily[index];
+
+    forecastElement.innerHTML += `
+     <div class="col-4">
+     <h3>
+     <strong>${formatDay(forecast.dt * 1000)}</strong>
+     <h3>
+     <img
+     src="http://openweathermap.org/img/wn/${
+       forecast.weather[0].icon
+     }@2x.png" />
+    <div class="weather-forecast-temperature" ><strong>${Math.round(
+      forecast.temp.max
+    )}°</strong> | ${Math.round(forecast.temp.min)}°</div></div>`;
   }
 }
 
@@ -126,6 +162,7 @@ function handleSubmit(event) {
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+
   celciusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;

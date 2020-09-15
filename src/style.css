@@ -4,16 +4,20 @@ body {
 }
 
 h1 {
-  font-size: 29px;
+  font-size: 33px;
   font-weight: 100;
   line-height: 27.5px;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
-ul li ul li,
+ul li ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
 .sun-times li {
   display: inline;
-  margin: 0 4px;
+  margin: 0 11px;
 }
 
 ul,
@@ -68,14 +72,15 @@ a:hover,
   text-align: center;
 }
 
-.col-9 {
+.col-8 {
   padding: 0 0 0 18px;
 }
 .sun-times {
   display: block;
-  margin: 0 auto;
+  margin: 20px 0 0 0;
 }
-.col-3 {
+
+.col-4 {
   padding: 0 0 0 10px;
 }
 
@@ -83,9 +88,13 @@ a:hover,
   width: 80px;
 }
 
+.col-4 img {
+  width: 60px;
+}
+
 .weather-display img {
-  width: 100px;
-  height: 100px;
+  width: 115px;
+  height: 115px;
   margin-top: 0;
 }
 
@@ -97,8 +106,13 @@ a:hover,
   text-transform: capitalize;
 }
 
+.weather-display {
+  padding-left: 70px;
+}
+
 .temperature-display {
-  margin-top: 10px;
+  margin-top: 20px;
+  padding-right: 50px;
 }
 
 .temperature-display strong {
@@ -125,22 +139,32 @@ h3,
 
 .btn-group #search {
   background-color: #737d85;
+  border-color: #737d85;
+}
+
+.btn-group #refresh {
+  color: #646c74;
+  background-color: #fff;
+  border-color: #e2e2e2;
 }
 
 .btn-group #search,
+.btn-group #refresh,
 .btn-group #current-location {
   width: 40px;
 }
 
 .btn-group #current-location {
   background-color: #5a6268;
-  border-color: #545b62;
+  border-color: #5a6268;
 }
 
 .btn-group #search:hover,
 .btn-group #current-location:hover,
 .btn-group #search:focus,
 .btn-group #current-location:focus,
+.btn-group #refresh:hover,
+.btn-group #refresh:focus,
 #city-input:focus {
   box-shadow: none;
   background-color: #ececec;
