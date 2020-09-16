@@ -48,13 +48,7 @@ function formatTime(timestamp) {
     minutes = `0${minutes}`;
   }
 
-  if (hours < 12) {
-    let time = `${hours}:${minutes}am`;
-    return `${time}`;
-  } else {
-    let time = `${hours}:${minutes}pm`;
-    return `${time}`;
-  }
+  return `${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {
