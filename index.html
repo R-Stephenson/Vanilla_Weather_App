@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Weather by Romana" />
-    <meta
-      property="og:image"
-      content="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/002/572/original/weather-app-thumbnail.jpg?1600169610"
-    />
+    <link rel="image_src" href="src/thumbnail.jpg" />
     <meta property="og:description" content="Weather App" />
     <link
       rel="stylesheet"
@@ -21,10 +18,11 @@
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
+    <link rel="icon" href="src/favicon.jpg" />
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container">
+    <div class="content-container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <form id="search-form" class="mb-3">
@@ -108,11 +106,11 @@
             </li>
           </ul>
           <div class="row">
-            <div class="col-6 weather-display">
+            <div class="col-6 current-weather">
               <img src="" alt="" id="icon" />
               <div id="description"></div>
             </div>
-            <div class="col-6 temperature-display">
+            <div class="col-6 current-temperature">
               <strong id="temperature"></strong
               ><span class="units"
                 ><a href="#" id="celcius-link" class="active">°C</a> |
@@ -121,7 +119,7 @@
             </div>
           </div>
           <br />
-          <div class="row weather-forecast" id="forecast"></div>
+          <div class="row weather-forecast" id="hourly-forecast"></div>
           <hr />
           <div class="row weather-forecast" id="daily-forecast"></div>
         </div>
@@ -131,11 +129,12 @@
             href="https://github.com/R-Stephenson/Vanilla_Weather_App"
             target="_blank"
             >Open-source code</a
-          >, by
+          ><small> by</small>
           <a
             href="https://www.linkedin.com/in/romana-stephenson-24767a103/"
             target="_blank"
-            >Romana Stephenson</a
+          >
+            Romana Stephenson</a
           >
         </small>
       </div>
