@@ -27,6 +27,12 @@ ul li ul {
 ul {
   margin-bottom: 0px;
 }
+hr {
+  background-color: #fff;
+  margin: 0;
+  height: 1.5px;
+  border: 0px;
+}
 h3 {
   margin-bottom: 0;
 }
@@ -35,7 +41,6 @@ body,
   background-color: #0f667e;
 }
 body,
-a,
 .active,
 .weather-forecast .col-3,
 .active:hover {
@@ -53,13 +58,13 @@ h3,
 .forecast-temperature {
   font-size: 14px;
 }
+a {
+  color: #5d99ca;
+}
 a:hover,
 .active:hover,
 .signature a {
   text-decoration: none;
-}
-a:hover {
-  color: #5d99ca;
 }
 .weather-app-wrapper {
   max-width: 300px;
@@ -67,35 +72,47 @@ a:hover {
 }
 .weather-app {
   padding: 8px;
-  border: 1px solid #ffffff;
+  border: 1px solid #ececec;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: #d9e7eb;
 }
 .col-7 {
-  padding: 0 0 0 9px;
+  padding: 0 0 0 15px;
+  max-width: 179px;
+}
+.mb-3 {
+  margin-bottom: 0px !important;
+}
+.form-control {
+  border-radius: 0.25rem 0 0 0;
+  border: solid 1px #fff !important;
+  border-bottom: solid 1px #ececec !important;
 }
 .col-4 {
-  padding: 0 0 0 2.5px;
+  padding: 0;
 }
 .searched-city-wrap {
   max-width: 300px;
-  border: solid 1px #dfdfdf;
-  margin: 10px 0 0 0;
-  border-radius: 5px;
+  border: solid 1px #fff;
+  border-radius: 0;
   padding: 0px 0 10px 0;
+  background-color: #fff;
 }
 .btn-group #search {
-  background-color: #3f8da3;
-  border-color: #3f8da3;
+  color: #3f8da3;
+  background-color: #fff;
+  border-color: #fff;
+  border-bottom: solid 1px #ececec;
+  border-radius: 0%;
 }
 .btn-group #current-location {
   background-color: #0f667e;
   border-color: #0f667e;
 }
 .btn-group #refresh {
-  color: #3f8da3;
-  background-color: #fff;
-  border-color: #d5e3e7;
+  background-color: #3f8da3;
+  border-color: #3f8da3;
+  border-radius: 0 0.25rem 0 0;
 }
 .btn-group #search,
 .btn-group #current-location,
@@ -110,7 +127,7 @@ a:hover {
 .btn-group #refresh:focus,
 #city-input:focus {
   box-shadow: none;
-  background-color: #e0eff3;
+  background-color: #d9e7eb;
   color: #0f667e;
   border: none;
 }
@@ -168,32 +185,45 @@ a:hover {
   position: relative;
   top: -40px;
 }
+.f-like {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-style: italic;
+}
 .sun-times li {
   display: inline;
   margin: 0 11px;
+}
+.forecast-wrap {
+  background-color: #ffe792;
+  color: #5e5e5e;
+  border-radius: 0 0 0.25rem 0.25rem;
 }
 .weather-forecast::-webkit-scrollbar {
   width: 4px;
 }
 .weather-forecast::-webkit-scrollbar-track {
-  background: #e0eff3;
+  background: #6eaec0;
 }
 .weather-forecast::-webkit-scrollbar-thumb {
-  background-color: #0f667e;
-  border-radius: 20px;
+  background-color: #19556b;
+  border-radius: 15px;
+  border: solid 1px #19556b;
 }
 .h,
 .d {
+  padding-top: 10px;
   margin: 0 auto;
   position: sticky;
   overflow-x: hidden;
   overflow-y: scroll;
+  border-radius: 5px;
 }
 .h {
-  height: 140px;
+  height: 145px;
 }
 .d {
-  height: 120px;
+  height: 130px;
 }
 .col-4 .hf {
   padding: 0 0 0 0 !important;
@@ -206,11 +236,8 @@ a:hover {
 .forecast-temperature {
   margin-bottom: 10px;
 }
-.weather-forecast {
-  margin-bottom: 5px;
-}
 .signature {
-  color: #eebd1c;
+  color: #ffe37d;
 }
 .signature a {
   color: #f5f5f5;
@@ -221,5 +248,4 @@ a:hover {
 }
 .signature small {
   font-weight: lighter;
-  font-style: italic;
 }

@@ -102,9 +102,9 @@ function displayHourlyForecast(response) {
     }@2x.png" width="95"/>
     <div class="forecast-temperature hourly">${Math.round(
       forecast.temp
-    )}° | <strong>${Math.round(
+    )}° | <strong><span class="f-like">fl </span>${Math.round(
       forecast.feels_like
-    )} <i class="fas fa-temperature-high"></i><strong></div></div>`;
+    )}° </strong></div></div>`;
   }
 }
 
@@ -117,9 +117,9 @@ function displayDailyForecast(response) {
     forecast = response.data.daily[index];
     forecastElement.innerHTML += `
      <div class="col-6 .df">
-     <h3 id="tomorrow">
-     <strong>${formatDay(forecast.dt * 1000)}</strong>
-     <h3>
+     <h3 id="tomorrow"><strong>
+     ${formatDay(forecast.dt * 1000)}
+     </strong><h3>
      <img
      src="http://openweathermap.org/img/wn/${
        forecast.weather[0].icon
@@ -154,7 +154,7 @@ function searchCurrentLocation(position) {
 }
 
 function getCurrentLocation(event) {
-  event.preventDefault();
+  //event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchCurrentLocation);
 }
 
@@ -199,3 +199,4 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
 searchCity("cardiff");
+//getCurrentLocation();

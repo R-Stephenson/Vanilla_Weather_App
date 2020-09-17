@@ -69,7 +69,8 @@
             <ul>
               <li>
                 <small
-                  >Updated: <strong><span id="date"></span></strong
+                  ><em>Last updated</em>:
+                  <strong><span id="date"></span></strong
                 ></small>
               </li>
             </ul>
@@ -101,7 +102,7 @@
                 <span id="wind"></span> km/h
               </li>
               <li>
-                <strong><i class="fas fa-temperature-high"></i></strong>
+                <strong class="f-like">fl</strong>
                 <span id="feels-like"></span>°C
               </li>
             </ul>
@@ -116,10 +117,11 @@
               </li>
             </ul>
           </div>
-          <br />
-          <div class="row weather-forecast h" id="hourly-forecast"></div>
-          <hr />
-          <div class="row weather-forecast d" id="daily-forecast"></div>
+          <div class="forecast-wrap">
+            <div class="row weather-forecast h" id="hourly-forecast"></div>
+            <hr />
+            <div class="row weather-forecast d" id="daily-forecast"></div>
+          </div>
         </div>
         <small class="signature"
           ><a
