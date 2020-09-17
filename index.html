@@ -27,7 +27,7 @@
         <div class="weather-app">
           <form id="search-form" class="mb-3">
             <div class="row">
-              <div class="col-8">
+              <div class="col-7">
                 <input
                   type="search"
                   placeholder="Enter city..."
@@ -65,65 +65,62 @@
               </div>
             </div>
           </form>
-          <ul>
-            <li>
-              <small
-                >Last updated: <strong><span id="date"></span></strong
-              ></small>
-            </li>
-            <li>
-              <h1>
-                <span class="city-sentence">Now, in</span>
-                <span id="city"></span>
-              </h1>
-            </li>
-            <li>
-              <ul>
-                <li>
-                  <strong><i class="fas fa-tint"></i></strong>
-                  <span id="humidity"></span>%
-                </li>
-                <li>
-                  <strong><i class="fas fa-wind"></i></strong>
-                  <span id="wind"></span> km/h
-                </li>
-                <li>
-                  <strong><i class="fas fa-temperature-high"></i></strong>
-                  <span id="feels-like"></span>°C
-                </li>
-              </ul>
-            </li>
-            <li></li>
-          </ul>
-          <ul class="sun-times">
-            <li>
-              <strong><i class="fas fa-sun"></i></strong>
-              <span id="sunrise"></span>
-            </li>
-            <li>
-              <strong><i class="fas fa-moon"></i></strong>
-              <span id="sunset"></span>
-            </li>
-          </ul>
-          <div class="row">
-            <div class="col-6 current-weather">
-              <img src="" alt="" id="icon" />
-              <div id="description"></div>
+          <div class="searched-city-wrap">
+            <ul>
+              <li>
+                <small
+                  >Updated: <strong><span id="date"></span></strong
+                ></small>
+              </li>
+            </ul>
+            <br />
+            <h1>
+              <span class="city-sentence">Now, in</span>
+              <span id="city"></span>
+            </h1>
+            <div class="weather-description" id="description"></div>
+            <div class="row">
+              <div class="col-6 current-weather">
+                <img src="" alt="" id="icon" />
+              </div>
+              <div class="col-6 current-temperature">
+                <strong id="temperature"></strong
+                ><span class="units"
+                  ><a href="#" id="celcius-link" class="active">°C</a> |
+                  <a href="#" id="fahrenheit-link">°F</a></span
+                >
+              </div>
             </div>
-            <div class="col-6 current-temperature">
-              <strong id="temperature"></strong
-              ><span class="units"
-                ><a href="#" id="celcius-link" class="active">°C</a> |
-                <a href="#" id="fahrenheit-link">°F</a></span
-              >
-            </div>
+            <ul class="current-info">
+              <li>
+                <strong><i class="fas fa-tint"></i></strong>
+                <span id="humidity"></span>%
+              </li>
+              <li>
+                <strong><i class="fas fa-wind"></i></strong>
+                <span id="wind"></span> km/h
+              </li>
+              <li>
+                <strong><i class="fas fa-temperature-high"></i></strong>
+                <span id="feels-like"></span>°C
+              </li>
+            </ul>
+            <ul class="sun-times">
+              <li>
+                <strong><i class="fas fa-sun"></i></strong>
+                <span id="sunrise"></span>
+              </li>
+              <li>
+                <strong><i class="fas fa-moon"></i></strong>
+                <span id="sunset"></span>
+              </li>
+            </ul>
           </div>
           <br />
-          <div class="row weather-forecast" id="hourly-forecast"></div>
+          <div class="row weather-forecast h" id="hourly-forecast"></div>
           <hr />
-          <div class="row weather-forecast" id="daily-forecast"></div>
+          <div class="row weather-forecast d" id="daily-forecast"></div>
         </div>
-
         <small class="signature"
           ><a
             href="https://github.com/R-Stephenson/Vanilla_Weather_App"

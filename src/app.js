@@ -36,19 +36,19 @@ function formatDate(timestamp) {
   let year = date.getFullYear();
   return `${formatDay(timestamp)} ${dayNumber} | ${month} | ${formatTime(
     timestamp
-  )} | ${year}`;
+  )}`;
 }
 
 function formatTime(timestamp) {
-  let date = new Date(timestamp);
-
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
+  let time = new Date(timestamp);
+  let ampm = time.getHours() >= 12 ? "pm" : "am";
+  let hours = time.getHours() >= 12 ? time.getHours() - 12 : time.getHours();
+  let minutes = time.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
-  return `${hours}:${minutes}`;
+  return `${hours}:${minutes} ${ampm}`;
 }
 
 function displayTemperature(response) {
@@ -88,16 +88,18 @@ function displayHourlyForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 4; index++) {
+  for (let index = 0; index < 6; index++) {
     forecast = response.data.hourly[index];
 
     forecastElement.innerHTML += `
-    <div class="col-3">
-    <h3>
+    <div class="col-4 hf">
+        <h3><strong>
     ${formatTime(forecast.dt * 1000)}
-    <h3>
+    </strong><h3>
     <img
-    src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+    src="http://openweathermap.org/img/wn/${
+      forecast.weather[0].icon
+    }@2x.png" width="95"/>
     <div class="forecast-temperature hourly">${Math.round(
       forecast.temp
     )}° | <strong>${Math.round(
@@ -111,17 +113,17 @@ function displayDailyForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  for (let index = 1; index < 4; index++) {
+  for (let index = 1; index < 5; index++) {
     forecast = response.data.daily[index];
     forecastElement.innerHTML += `
-     <div class="col-4">
+     <div class="col-6 .df">
      <h3 id="tomorrow">
      <strong>${formatDay(forecast.dt * 1000)}</strong>
      <h3>
      <img
      src="http://openweathermap.org/img/wn/${
        forecast.weather[0].icon
-     }@2x.png" />
+     }@2x.png" width="80"/>
     <div class="forecast-temperature daily" ><i class="fas fa-long-arrow-alt-up"></i> ${Math.round(
       forecast.temp.max
     )}° | <i class="fas fa-long-arrow-alt-down"></i> ${Math.round(
