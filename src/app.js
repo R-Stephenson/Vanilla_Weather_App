@@ -199,4 +199,4 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
 searchCity("cardiff");
-//getCurrentLocation();
+getCurrentLocation();
