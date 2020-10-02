@@ -84,8 +84,8 @@ function displayTemperature(response) {
   let bgImage = document.querySelector("#weatherImg");
   bgImage.style.backgroundImage = `linear-gradient(
       45deg,
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.2)
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
     ), url(media/images/${getIconCode}.png)`;
 }
 
