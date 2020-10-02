@@ -86,8 +86,7 @@ function displayTemperature(response) {
       45deg,
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.2)
-    ),
-url(media/images/${getIconCode}.png)`;
+    ), url(media/images/${getIconCode}.png)`;
 }
 
 function displayHourlyForecast(response) {
