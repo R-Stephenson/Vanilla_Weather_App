@@ -33,7 +33,6 @@ function formatDate(timestamp) {
     "January",
   ];
   let month = months[date.getMonth()];
-  let year = date.getFullYear();
   return `${formatDay(timestamp)} ${dayNumber} | ${month} | ${formatTime(
     timestamp
   )}`;
@@ -63,7 +62,9 @@ function displayTemperature(response) {
   let sunsetElement = document.querySelector("#sunset");
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#description");
-  let iconElement = document.querySelector("#icon");
+  let mainIcon = document.querySelector("#icon");
+
+  let getIconCode = response.data.weather[0].icon;
 
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   cityElement.innerHTML = response.data.name;
@@ -74,13 +75,19 @@ function displayTemperature(response) {
   sunsetElement.innerHTML = formatTime(response.data.sys.sunset * 1000);
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   descriptionElement.innerHTML = response.data.weather[0].description;
-  iconElement.setAttribute("alt", response.data.weather[0].description);
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+
+  mainIcon.setAttribute("alt", descriptionElement);
+  mainIcon.setAttribute("src", `media/${getIconCode}.png`);
 
   displayForecast(response);
+
+  let bgImage = document.querySelector("#weatherImg");
+  bgImage.style.backgroundImage = `linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.2)
+    ),
+url(media/images/${getIconCode}.png)`;
 }
 
 function displayHourlyForecast(response) {
@@ -90,21 +97,21 @@ function displayHourlyForecast(response) {
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.hourly[index];
-
     forecastElement.innerHTML += `
     <div class="col-4 hf">
         <h3><strong>
     ${formatTime(forecast.dt * 1000)}
     </strong><h3>
-    <img
-    src="http://openweathermap.org/img/wn/${
-      forecast.weather[0].icon
-    }@2x.png" width="95"/>
+    <img id="h-icon"
+    src="media/${forecast.weather[0].icon}.png" width="60"/>
     <div class="forecast-temperature hourly">${Math.round(
       forecast.temp
     )}° | <strong><span class="f-like">fl </span>${Math.round(
       forecast.feels_like
     )}° </strong></div></div>`;
+    let icon = document.querySelector("#h-icon");
+    let getIconCode = forecast.weather[0].icon;
+    icon.setAttribute("src", `media/${getIconCode}.png`);
   }
 }
 
@@ -120,15 +127,17 @@ function displayDailyForecast(response) {
      <h3 id="tomorrow"><strong>
      ${formatDay(forecast.dt * 1000)}
      </strong><h3>
-     <img
-     src="http://openweathermap.org/img/wn/${
-       forecast.weather[0].icon
-     }@2x.png" width="80"/>
+     <img id="d-icon"
+    src="media/${forecast.weather[0].icon}.png" width="60"/>
     <div class="forecast-temperature daily" ><i class="fas fa-long-arrow-alt-up"></i> ${Math.round(
       forecast.temp.max
     )}° | <i class="fas fa-long-arrow-alt-down"></i> ${Math.round(
       forecast.temp.min
     )}°</div></div>`;
+
+    let icon = document.querySelector("#d-icon");
+    let getIconCode = forecast.weather[0].icon;
+    icon.setAttribute("src", `media/${getIconCode}.png`);
 
     if (index === 1) {
       let tomorrowElement = document.querySelector("#tomorrow");
@@ -153,8 +162,7 @@ function searchCurrentLocation(position) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
-function getCurrentLocation(event) {
-  //event.preventDefault();
+function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(searchCurrentLocation);
 }
 
